@@ -19,44 +19,82 @@ class HomePageScreen extends Component {
   render () {
     const {params} = this.props.navigation.state;
     const {navigate} = this.props.navigation;
-    return (
-        <ScrollView>
-        <StatusBar
-           animated={true} //指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden
-           hidden={false}  //是否隐藏状态栏。
-           backgroundColor={'rgb(22,131,251)'} //状态栏的背景色
-           translucent={false}//指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
-           barStyle={'light-content'} // enum('default', 'light-content', 'dark-content')
-          />
-        <View style={styles.containers}>
-            <View style={styles.actionBar}>
-                <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-                    <Text style={{fontSize:18,color:'white',alignSelf:'center'}}>首页</Text>
-                </View>
-            </View>
-        </View>
-        <View>
-            <TouchableOpacity onPress={()=>{navigate('AlarmsScreen')}}>
-                <TextUtils image={require('../Images/yan.png')} textcolor='#7EC0EE' title="验收入库" context="新增验收 入库登记"  title_size={px2dp(20)} context_size={px2dp(16)}/>
-            </TouchableOpacity>
-        </View>
-        <View>
-            <TouchableOpacity onPress={()=>{navigate('OrderScreen',{name:'姚德涛',age:18})}}>
-                <TextUtils image={require('../Images/fa.png')} textcolor='#DDA0DD' title="发放调配" context="需求申请 发放调配"  title_size={px2dp(20)} context_size={px2dp(16)}/>
-            </TouchableOpacity>
-        </View>
-        <View>
-            <TouchableOpacity onPress={()=>{navigate('ReasticScreen',{name:'姚德涛',age:18})}}>
-                <TextUtils image={require('../Images/wei.png')} textcolor='#FF8247' title="维修报废" context="需求申请 保养记录 维修记录"  title_size={px2dp(20)} context_size={px2dp(16)}/>
-            </TouchableOpacity>
-        </View>
-        <View>
-            <TouchableOpacity onPress={()=>{navigate('ManngerScreen',{name:'姚德涛',age:18})}}>
-                <TextUtils image={require('../Images/tong.png')} textcolor='#FFD39B' title="统计分析" context="统计报表 仪表查询"  title_size={px2dp(20)} context_size={px2dp(16)}/>
-            </TouchableOpacity>
-        </View>
-        </ScrollView>
-    )
+
+    if (params.Level == 1) {
+      return (
+          <ScrollView>
+          <StatusBar
+             animated={true} //指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden
+             hidden={false}  //是否隐藏状态栏。
+             backgroundColor={'rgb(22,131,251)'} //状态栏的背景色
+             translucent={false}//指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
+             barStyle={'light-content'} // enum('default', 'light-content', 'dark-content')
+            />
+          <View style={styles.containers}>
+              <View style={styles.actionBar}>
+                  <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+                      <Text style={{fontSize:18,color:'white',alignSelf:'center'}}>首页</Text>
+                  </View>
+              </View>
+          </View>
+          <View>
+              <TouchableOpacity onPress={()=>{navigate('AlarmsScreen')}}>
+                  <TextUtils image={require('../Images/yan.png')} textcolor='#7EC0EE' title="告警查询"   title_size={px2dp(20)}/>
+              </TouchableOpacity>
+          </View>
+          <View>
+              <TouchableOpacity onPress={()=>{navigate('OrderScreen',{name:'姚德涛',age:18})}}>
+                  <TextUtils image={require('../Images/fa.png')} textcolor='#DDA0DD' title="我的工单"  title_size={px2dp(20)}/>
+              </TouchableOpacity>
+          </View>
+          <View>
+              <TouchableOpacity onPress={()=>{navigate('ReasticScreen',{name:'姚德涛',age:18})}}>
+                  <TextUtils image={require('../Images/wei.png')} textcolor='#FF8247' title="工作写实"   title_size={px2dp(20)}/>
+              </TouchableOpacity>
+          </View>
+          <View>
+              <TouchableOpacity onPress={()=>{navigate('ManngerScreen',{name:'姚德涛',age:18})}}>
+                  <TextUtils image={require('../Images/tong.png')} textcolor='#FFD39B' title="工单管理"  title_size={px2dp(20)}/>
+              </TouchableOpacity>
+          </View>
+          </ScrollView>
+      )
+    }else {
+      return (
+          <ScrollView>
+          <StatusBar
+             animated={true} //指定状态栏的变化是否应以动画形式呈现。目前支持这几种样式：backgroundColor, barStyle和hidden
+             hidden={false}  //是否隐藏状态栏。
+             backgroundColor={'rgb(22,131,251)'} //状态栏的背景色
+             translucent={false}//指定状态栏是否透明。设置为true时，应用会在状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用。
+             barStyle={'light-content'} // enum('default', 'light-content', 'dark-content')
+            />
+          <View style={styles.containers}>
+              <View style={styles.actionBar}>
+                  <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+                      <Text style={{fontSize:18,color:'white',alignSelf:'center'}}>首页</Text>
+                  </View>
+              </View>
+          </View>
+          <View>
+              <TouchableOpacity onPress={()=>{navigate('AlarmsScreen')}}>
+                  <TextUtils image={require('../Images/yan.png')} textcolor='#7EC0EE' title="告警查询"   title_size={px2dp(20)}/>
+              </TouchableOpacity>
+          </View>
+          <View>
+              <TouchableOpacity onPress={()=>{navigate('OrderScreen',{name:'姚德涛',age:18})}}>
+                  <TextUtils image={require('../Images/fa.png')} textcolor='#DDA0DD' title="我的工单"  title_size={px2dp(20)}/>
+              </TouchableOpacity>
+          </View>
+          <View>
+              <TouchableOpacity onPress={()=>{navigate('ReasticScreen',{name:'姚德涛',age:18})}}>
+                  <TextUtils image={require('../Images/wei.png')} textcolor='#FF8247' title="工作写实"   title_size={px2dp(20)}/>
+              </TouchableOpacity>
+          </View>
+          </ScrollView>
+      )
+    }
+
   }
 }
 const MainScreenNavigator = TabNavigator({
@@ -73,7 +111,7 @@ const MainScreenNavigator = TabNavigator({
          )
        })
    },
-  
+
    MyScreen: {
        screen: MyScreen,
        navigationOptions: ({navigation}) =>({

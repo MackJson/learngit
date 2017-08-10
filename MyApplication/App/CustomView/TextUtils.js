@@ -27,19 +27,16 @@ import {
             image:PropTypes.number.isRequired,
             title: PropTypes.string.isRequired,
             title_size:PropTypes.number.isRequired,
-            context_size :PropTypes.number.isRequired,
-            context:PropTypes.string.isRequired,
             onPress: PropTypes.func
         }
-
+// <Text style={{ fontSize: context_size}}>{context}</Text>
         render(){
-            const {title, title_size,image,context,context_size,textcolor} = this.props;
+            const {title, title_size,image,context,textcolor} = this.props;
         return(
             <View style={styles.actionBars}>
                 <View style={styles.intros}>
                 <View style={{marginLeft: px2dp(12)}}>
                     <Text style={{color: textcolor, fontSize: title_size}}>{title}</Text>
-                    <Text style={{ fontSize: context_size}}>{context}</Text>
                 </View>
                 <View style={{flex:1}}/>
                 <View style={{marginRight:px2dp(10)}}>
